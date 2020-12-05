@@ -7,8 +7,22 @@ from sqlalchemy.orm import relationship, backref
 class Clients(db.Model):
     __tablename__ = 'clients'
     id = db.Column('client_id', db.Integer, primary_key = True)
+
+data_valid = False
+while data_valid == False:
     name = db.Column(db.String(100))
-    password = db.Column(db.String(50))  
+    if  name <100 or name>100:
+        print("Name should be between 99 and 101")
+        continue
+    else:
+        data_valid = True
+
+    password = db.Column(db.String(50))
+    if password <50 or password >50:
+        print("Password should be between 49 and 51 ")
+        continue
+    else:
+        data_valid = True
 
 
     def __init__(self, name, password):
